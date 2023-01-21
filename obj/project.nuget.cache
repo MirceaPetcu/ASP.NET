@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "id8dqwQTLkQcJqixkbYHO8+TE5/ZHady0cZnTM6f7YLKdmzijiTr0G+TVlUiK0kbRg37bo9IV3e72IQTThZ3qA==",
+  "dgSpecHash": "ICnomT0uuouEx5FbZ5xynnBZJXyHx3XL+SBqvuPq4FKOtji5w3An3e8W6RpTE/Q2IUQu5eqks1ubfKFBt4Kjmw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\234_Petcu_Mircea_Proiect\\ProiectV1\\ProiectV1.csproj",
+  "projectFilePath": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\ProiectV1\\ProiectV1.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\acer\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",

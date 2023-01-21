@@ -3790,11 +3790,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\234_Petcu_Mircea_Proiect\\ProiectV1\\ProiectV1.csproj",
+      "projectUniqueName": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\ProiectV1\\ProiectV1.csproj",
       "projectName": "ProiectV1",
-      "projectPath": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\234_Petcu_Mircea_Proiect\\ProiectV1\\ProiectV1.csproj",
+      "projectPath": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\ProiectV1\\ProiectV1.csproj",
       "packagesPath": "C:\\Users\\acer\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\234_Petcu_Mircea_Proiect\\ProiectV1\\obj\\",
+      "outputPath": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\ProiectV1\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

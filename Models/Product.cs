@@ -7,7 +7,7 @@ namespace ProiectV1.Models
     {
         public double Price { get; set; }
         public string Name { get; set; }
-        public ProductCategory Category { get; set; }
+        public ProductCategory? Category { get; set; }
         public ICollection<ProductPromotion>? ProductPromotions { get; set; }
         public Order? Order { get; set; }
         public Guid? OrderId { get; set; }  
