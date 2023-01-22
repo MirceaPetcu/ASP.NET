@@ -4,6 +4,7 @@ using Microsoft.Extensions.Hosting;
 using ProiectV1.Data;
 using ProiectV1.Helpers;
 using ProiectV1.Helpers.Extensions;
+using ProiectV1.Helpers.Middleware;
 using ProiectV1.Helpers.Seeders;
 using ProiectV1.Repositories.ProductRepository;
 using ProiectV1.Services.ProductServices;
@@ -23,7 +24,7 @@ builder.Services.AddRepositories();
 builder.Services.AddServices();
 builder.Services.AddSeeders();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
-
+builder.Services.AddUtils();
 
 //AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
@@ -39,7 +40,7 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 
 app.UseAuthorization();
-
+app.UseMiddleware<JwtMiddleware>();
 app.MapControllers();
 
 app.Run();

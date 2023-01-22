@@ -15,7 +15,7 @@ namespace ProiectV1.Services.UserServices
             this.userRepository = userRepository;
             this.jwtUtils = jwtUtils;
         }
-        UserResponseDTO Authenticate(UserRequestDTO model)
+        public UserResponseDTO Authenticate(UserRequestDTO model)
         {
             var user = userRepository.FindByUserName(model.UserName);
             //daca  am gasit userul sau parola bagata in request nu se portriveste cu cea a hashita din baza de date
@@ -29,11 +29,11 @@ namespace ProiectV1.Services.UserServices
         }
         public Task Create(UserRequestDTO newUser)
         {
-            throw new NotImplementedException;
+            throw new NotImplementedException();
         }
         public UserRequestDTO GetById(Guid id)
         {
-            throw new NotImplementedException;
+            throw new NotImplementedException();
         }
 
 
