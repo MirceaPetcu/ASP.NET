@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Mvc;
 using ProiectV1.Models;
 using ProiectV1.Models.DTOs;
 using ProiectV1.Repositories.ProductRepository;
+using ProiectV1.Services.ProductServices;
 
 namespace ProiectV1.Controllers
 {
@@ -10,21 +11,24 @@ namespace ProiectV1.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductRepository productRepository;
+        private readonly IProductService _productService;
 
-        public ProductController(IProductRepository productRepository)
+        public ProductController(IProductService productService)
         {
-            this.productRepository = productRepository;
+            _productService = productService;
         }
+
         [HttpPost("CreateProduct")]
-        IActionResult AddProduct(ProductDTO productdto)
+        public IActionResult AddProduct([FromBody]ProductDTO productdto)
         {
-            var newProduct = new Product();
-            newProduct.Price = productdto.price;
-            newProduct.Name = productdto.name;
-            productRepository.Create(newProduct);
-            productRepository.Save();
-            return Ok(newProduct);
+           return Ok(_productService.CreateProduct(productdto));
+            
+        }
+
+        [HttpGet("GetProducts")]
+        public IActionResult GetProducts()
+        {
+            return Ok(_productService.GetProducts());
         }
     }
 }
