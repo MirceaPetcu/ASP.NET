@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "4sWsuFzCqu+jJjI7eD4Lno1kGUeorkQPf6HGAAJpq/DsMfSXrPE6X6aB6qPfQr4KGTl6SXnbQrNcU8/jvE3+nA==",
+  "dgSpecHash": "kHoUiQUKEhw03zH20vejcK6dS8eFe2aH5AoQdizHEdrQuvQaZeaT35U+qE5lOPcEEqMel3VieIoCRnUayu2ypg==",
   "success": true,
   "projectFilePath": "C:\\Users\\acer\\OneDrive - unibuc.ro\\Desktop\\OPTIONAL\\ProiectV1\\ProiectV1.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\acer\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.0\\automapper.extensions.microsoft.dependencyinjection.12.0.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\acer\\.nuget\\packages\\bcrypt.net-core\\1.6.0\\bcrypt.net-core.1.6.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.aspnetcore.http.abstractions\\2.2.0\\microsoft.aspnetcore.http.abstractions.2.2.0.nupkg.sha512",
     "C:\\Users\\acer\\.nuget\\packages\\microsoft.aspnetcore.http.features\\2.2.0\\microsoft.aspnetcore.http.features.2.2.0.nupkg.sha512",

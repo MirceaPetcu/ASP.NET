@@ -7,5 +7,6 @@ namespace ProiectV1.Services.ProductServices
     {
         Product CreateProduct(ProductDTO product);
         List<Product> GetProducts();
+        Product CreateProductWithMapper();
     }
 }

@@ -10,11 +10,16 @@ namespace ProiectV1.Repositories.UserRepository
         {
         }
 
-
         public int NoOrdersByUserId(Guid id)
         {
             var noOrders = table.Where(u => u.Id == id).Select(u => u.Orders);
             return noOrders.Count();
         }
+
+        public User FindByUserName(string username)
+        {
+            return table.FirstOrDefault(x => x.UserName == username);
+        }
+        
     }
 }

@@ -6,6 +6,7 @@ namespace ProiectV1.Repositories.UserRepository
     public interface IUserRepository : IGenericRepository<User>
     {
         int NoOrdersByUserId(Guid id);
+        User FindByUserName(string username);
     }
     
 

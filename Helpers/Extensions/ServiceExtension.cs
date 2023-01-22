@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ProiectV1.Helpers.Seeders;
 using ProiectV1.Repositories.OrderRepository;
 using ProiectV1.Repositories.ProductRepository;
 using ProiectV1.Repositories.PromotionRepository;
@@ -26,6 +27,12 @@ namespace ProiectV1.Helpers.Extensions
             //services.AddTransient<IOrderRepository, OrderRepository>();
             //services.AddTransient<I>
 
+            return services;
+        }
+
+        public static IServiceCollection AddSeeders(this IServiceCollection services)
+        {
+            services.AddScoped<ProductSeeder>();
             return services;
         }
     }
