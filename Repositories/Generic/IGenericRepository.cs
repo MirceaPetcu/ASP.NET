@@ -13,8 +13,8 @@
         Task<List<TEntity>> GetAllAsync();
 
         //get by id
-        TEntity GetById(int id);
-        Task<TEntity> GetByIdAsync(int id);
+        TEntity GetById(Guid id);
+        Task<TEntity> GetByIdAsync(Guid id);
 
         //update
         void Update(TEntity entity);

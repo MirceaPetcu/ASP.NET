@@ -33,6 +33,7 @@ namespace ProiectV1.Helpers.Seeders
                 };
                 proiectContext.Add(product1);
                 proiectContext.Add(product2);
+                proiectContext.SaveChanges();
             }
         }
     }

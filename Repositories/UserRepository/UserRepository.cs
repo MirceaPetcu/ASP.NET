@@ -1,5 +1,6 @@
 ﻿using ProiectV1.Data;
 using ProiectV1.Models;
+using ProiectV1.Models.Enums;
 using ProiectV1.Repositories.Generic;
 
 namespace ProiectV1.Repositories.UserRepository
@@ -20,6 +21,18 @@ namespace ProiectV1.Repositories.UserRepository
         {
             return table.FirstOrDefault(x => x.UserName == username);
         }
-        
+
+        public User FindByEmail(string email)
+        {
+            return table.FirstOrDefault(x => x.Email == email);
+        }
+
+        public Role GetRoleByUsername(string username)
+        {
+            var role =  table.Where(u => u.UserName == username).Select(u => u.Role).First();
+            return role;
+        }
+
+
     }
 }

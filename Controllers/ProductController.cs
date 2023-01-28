@@ -11,24 +11,31 @@ namespace ProiectV1.Controllers
     [ApiController]
     public class ProductController : ControllerBase
     {
-        private readonly IProductService _productService;
+        private readonly IProductService productService;
 
         public ProductController(IProductService productService)
         {
-            _productService = productService;
+            this.productService = productService;
         }
 
         [HttpPost("CreateProduct")]
-        public IActionResult AddProduct([FromBody]ProductDTO productdto)
+        public IActionResult AddProduct(ProductDTO productdto)
         {
-           return Ok(_productService.CreateProduct(productdto));
+            var localProduct = new Product
+            {
+                Price = productdto.Price,
+                Name = productdto.Name,
+                Category = productdto.Category
+            };
+            productService.CreateProduct(localProduct);
+            return Ok();
             
         }
 
         [HttpGet("GetProducts")]
         public IActionResult GetProducts()
         {
-            return Ok(_productService.GetProducts());
+            return Ok(productService.GetProducts());
         }
     }
 }

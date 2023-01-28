@@ -6,6 +6,7 @@ using ProiectV1.Repositories.ProductRepository;
 using ProiectV1.Repositories.PromotionRepository;
 using ProiectV1.Repositories.UserRepository;
 using ProiectV1.Services.ProductServices;
+using ProiectV1.Services.UserServices;
 
 namespace ProiectV1.Helpers.Extensions
 {
@@ -27,6 +28,7 @@ namespace ProiectV1.Helpers.Extensions
             //services.AddTransient<IPromotionRepository, PromotionRepository>();
             //services.AddTransient<IOrderRepository, OrderRepository>();
             //services.AddTransient<I>
+            services.AddTransient<IUserService, UserService>();
 
             return services;
         }

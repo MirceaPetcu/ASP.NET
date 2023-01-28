@@ -14,16 +14,12 @@ namespace ProiectV1.Services.ProductServices
             this.productRepository = productRepository;
             this.mapper = mapper;
         }
-        public Product CreateProduct(ProductDTO product)
-        {
-            var newProduct = new Product();
-            newProduct.Price = product.Price;
-            newProduct.Name = product.Name;
-            productRepository.Create(newProduct);
+        public void CreateProduct(Product product)
+        { 
+            productRepository.Create(product);
             productRepository.Save();
-            return newProduct;
         }
-        public Product CreateProductWithMapper()
+        public void CreateProductWithMapper()
         {
             var productDto = new ProductDTO();
             Product product = mapper.Map<Product>(productDto);

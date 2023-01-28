@@ -52,6 +52,10 @@ namespace ProiectV1.Data
                .WithMany(p => p.ProductPromotions)
                .HasForeignKey(pp => pp.PromotionId);
 
+            modelBuilder.Entity<User>()
+                .HasIndex(u => u.UserName)
+                .IsUnique();
+
             base.OnModelCreating(modelBuilder);
 
         }

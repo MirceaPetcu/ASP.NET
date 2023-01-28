@@ -20,19 +20,23 @@ namespace ProiectV1.Helpers.JwtUtils
         public string GenerateJwtToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            var appPrivateKey = Encoding.ASCII.GetBytes(_appSettings.JwtToken);
-
-            var tokenDescriptor = new SecurityTokenDescriptor
+            if (_appSettings.JwtToken != null)
             {
-                //ce retinem in token
-                Subject = new ClaimsIdentity(
-                    new[] { new Claim("id", user.Id.ToString()) }),
-                Expires = DateTime.UtcNow.AddDays(11),
-                //cum se hash-este parola
-                SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(appPrivateKey),SecurityAlgorithms.HmacSha384Signature)
-            };
-            var token = tokenHandler.CreateToken(tokenDescriptor);
-            return tokenHandler.WriteToken(token);
+                var appPrivateKey = Encoding.ASCII.GetBytes(_appSettings.JwtToken);
+
+                var tokenDescriptor = new SecurityTokenDescriptor
+                {
+                    //ce retinem in token
+                    Subject = new ClaimsIdentity(
+                        new[] { new Claim("id", user.Id.ToString()) }),
+                    Expires = DateTime.UtcNow.AddDays(11),
+                    //cum se hash-este parola
+                    SigningCredentials = new SigningCredentials(new SymmetricSecurityKey(appPrivateKey), SecurityAlgorithms.HmacSha384Signature)
+                };
+                var token = tokenHandler.CreateToken(tokenDescriptor);
+                return tokenHandler.WriteToken(token);
+            }
+            else return null;
         }
 
         //validare

@@ -56,12 +56,12 @@ namespace ProiectV1.Repositories.Generic
             return entities;
         }
 
-        public TEntity GetById(int id)
+        public TEntity GetById(Guid id)
         {
             return table.Find(id);
         }
 
-        public async Task<TEntity> GetByIdAsync(int id)
+        public async Task<TEntity> GetByIdAsync(Guid id)
         {
             return await table.FindAsync(id);
         }

@@ -166,3 +166,4 @@ C:\Users\acer\OneDrive - unibuc.ro\Desktop\OPTIONAL\ProiectV1\obj\Debug\net6.0\s
 C:\Users\acer\OneDrive - unibuc.ro\Desktop\OPTIONAL\ProiectV1\obj\Debug\net6.0\ProiectV1.csproj.CopyComplete
 C:\Users\acer\OneDrive - unibuc.ro\Desktop\OPTIONAL\ProiectV1\obj\Debug\net6.0\ProiectV1.genruntimeconfig.cache
 C:\Users\acer\OneDrive - unibuc.ro\Desktop\OPTIONAL\ProiectV1\obj\Debug\net6.0\ref\ProiectV1.dll
+C:\Users\acer\OneDrive - unibuc.ro\Desktop\OPTIONAL\ProiectV1\bin\Debug\net6.0\BCrypt.Net-Core.dll

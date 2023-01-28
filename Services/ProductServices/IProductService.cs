@@ -5,8 +5,8 @@ namespace ProiectV1.Services.ProductServices
 {
     public interface IProductService
     {
-        Product CreateProduct(ProductDTO product);
+        void CreateProduct(Product product);
         List<Product> GetProducts();
-        Product CreateProductWithMapper();
+        void CreateProductWithMapper();
     }
 }
