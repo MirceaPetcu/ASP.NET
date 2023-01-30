@@ -1,6 +1,7 @@
 ﻿using AutoMapper;
 using ProiectV1.Models;
 using ProiectV1.Models.DTOs;
+using ProiectV1.Models.Enums;
 using ProiectV1.Repositories.ProductRepository;
 
 namespace ProiectV1.Services.ProductServices
@@ -28,7 +29,11 @@ namespace ProiectV1.Services.ProductServices
         {
             return productRepository.GetAll();
         }
+        List<Product> IProductService.GetProductsFromCategory(ProductCategory category)
+        {
+            return productRepository.GetByCategory(category);
+        }
 
-        
+       
     }
 }

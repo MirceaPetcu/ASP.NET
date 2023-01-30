@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProiectV1.Models;
 using ProiectV1.Models.DTOs;
+using ProiectV1.Models.Enums;
 using ProiectV1.Repositories.ProductRepository;
 using ProiectV1.Services.ProductServices;
 
@@ -18,24 +19,15 @@ namespace ProiectV1.Controllers
             this.productService = productService;
         }
 
-        [HttpPost("CreateProduct")]
-        public IActionResult AddProduct(ProductDTO productdto)
+        [HttpGet("get-product-by-category")]
+        public IActionResult GetProductByCategory(ProductCategory category)
         {
-            var localProduct = new Product
-            {
-                Price = productdto.Price,
-                Name = productdto.Name,
-                Category = productdto.Category
-            };
-            productService.CreateProduct(localProduct);
-            return Ok();
-            
-        }
-
-        [HttpGet("GetProducts")]
-        public IActionResult GetProducts()
-        {
-            return Ok(productService.GetProducts());
+            var list = productService.GetProductsFromCategory(category);
+            var emptyList = new List<Product>();
+            if (list == emptyList)
+                return NotFound();
+            else
+                return Ok(list);
         }
     }
 }

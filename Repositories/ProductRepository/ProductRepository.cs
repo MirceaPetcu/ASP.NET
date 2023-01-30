@@ -12,22 +12,10 @@ namespace ProiectV1.Repositories.ProductRepository
         {
         }
 
-        public IQueryable<Product> GetByCategory(ProductCategory category)
+        public List<Product> GetByCategory(ProductCategory category)
         {
-            var products = from p in table
-                           where p.Category == category
-                           orderby p.Price
-                           select p;
-            try
-            {
-                if (products.Count() < 0)
-                    throw new NoProductsFoundException("No products found for this category.");
-                return products;
-            }
-            catch (NoProductsFoundException ex)
-            {
-                return products;
-            }
+            var products = table.Where(x => x.Category == category).Select(x => x).OrderBy(x => x.Price).ToList();
+            return products;
             
         }
 

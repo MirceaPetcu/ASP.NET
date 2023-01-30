@@ -5,6 +5,7 @@ namespace ProiectV1.Helpers.Seeders
 {
     public class ProductSeeder
     {
+        //le rulez cand nu am nimic in tabela
         public readonly ProiectContext proiectContext;
 
         public ProductSeeder(ProiectContext proiectContext)

@@ -6,7 +6,7 @@ namespace ProiectV1.Repositories.ProductRepository
 {
     public interface IProductRepository : IGenericRepository<Product>
     {
-        IQueryable<Product> GetByCategory(ProductCategory category);
+        List<Product> GetByCategory(ProductCategory category);
     }
     
 }
