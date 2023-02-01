@@ -1,10 +1,12 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using ProiectBackendPetcuMircea.DAL.Services.OrderServices;
 using ProiectV1.Helpers.JwtUtils;
 using ProiectV1.Helpers.Seeders;
 using ProiectV1.Repositories.OrderRepository;
 using ProiectV1.Repositories.ProductRepository;
 using ProiectV1.Repositories.PromotionRepository;
 using ProiectV1.Repositories.UserRepository;
+using ProiectV1.Services.OrderServices;
 using ProiectV1.Services.ProductServices;
 using ProiectV1.Services.UserServices;
 
@@ -29,6 +31,7 @@ namespace ProiectV1.Helpers.Extensions
             //services.AddTransient<IOrderRepository, OrderRepository>();
             //services.AddTransient<I>
             services.AddTransient<IUserService, UserService>();
+            services.AddTransient<IOrderService, OrderService>();
 
             return services;
         }
@@ -36,6 +39,7 @@ namespace ProiectV1.Helpers.Extensions
         public static IServiceCollection AddSeeders(this IServiceCollection services)
         {
             services.AddScoped<ProductSeeder>();
+            services.AddScoped<OrderSeeder>();
             return services;
         }
 

@@ -5,6 +5,8 @@ using ProiectV1.Models;
 using System.IdentityModel.Tokens.Jwt;
 using System.Security.Claims;
 using System.Text;
+using ProiectV1.Helpers;
+
 namespace ProiectV1.Helpers.JwtUtils
 {
     public class JwtUtilsC : IJwtUtils
@@ -20,10 +22,9 @@ namespace ProiectV1.Helpers.JwtUtils
         public string GenerateJwtToken(User user)
         {
             var tokenHandler = new JwtSecurityTokenHandler();
-            if (_appSettings.JwtToken != null)
-            {
-                var appPrivateKey = Encoding.ASCII.GetBytes(_appSettings.JwtToken);
-
+        
+            var appPrivateKey = Encoding.ASCII.GetBytes(_appSettings.JwtToken);
+            
                 var tokenDescriptor = new SecurityTokenDescriptor
                 {
                     //ce retinem in token
@@ -35,8 +36,7 @@ namespace ProiectV1.Helpers.JwtUtils
                 };
                 var token = tokenHandler.CreateToken(tokenDescriptor);
                 return tokenHandler.WriteToken(token);
-            }
-            else return null;
+           
         }
 
         //validare
@@ -69,7 +69,7 @@ namespace ProiectV1.Helpers.JwtUtils
                 var userId = new Guid(jwtToken.Claims.FirstOrDefault(x => x.Type == "id").Value);
                 return userId;
             }
-            catch (Exception)
+            catch 
             {
                 return Guid.Empty;
             }

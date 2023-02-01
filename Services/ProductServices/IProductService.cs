@@ -10,5 +10,11 @@ namespace ProiectV1.Services.ProductServices
         List<Product> GetProducts();
         void CreateProductWithMapper();
         List<Product> GetProductsFromCategory(ProductCategory category);
+        void DeleteProductByCategoryByName(ProductCategory category, string name);
+        List<Product> GetAllProducts();
+        Product GetProductByCategoryByName(ProductCategory category, string name);
+        void UpdateProduct(Product product);
+        List<List<Product>> GroupByCategory();
+
     }
 }

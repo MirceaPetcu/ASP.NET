@@ -46,6 +46,7 @@ app.MapControllers();
 app.Run();
 
 
+//apel initializare bd din seeder
 void SeedData(IHost app)
 {
     var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
@@ -53,5 +54,15 @@ void SeedData(IHost app)
     {
         var service = scope.ServiceProvider.GetService<ProductSeeder>();
         service.SeedInitialProducts();
+    }
+}
+
+void SeedData1(IHost app)
+{
+    var scopedFactory = app.Services.GetService<IServiceScopeFactory>();
+    using (var scope = scopedFactory.CreateScope())
+    {
+        var service = scope.ServiceProvider.GetService<OrderSeeder>();
+        service.SeedInitialOrders();
     }
 }

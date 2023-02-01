@@ -10,9 +10,7 @@ namespace ProiectV1.Helpers.Mapper
         {
             //populez baza de date mai repede
             CreateMap<Product, ProductDTO>();
-            CreateMap<Product, ProductDTO>()
-                .ForMember(dest => dest.ProductId,
-                opts => opts.MapFrom(source => source.Id)).ReverseMap();
+            //CreateMap<Product, ProductDTO>();
             
         }
     }

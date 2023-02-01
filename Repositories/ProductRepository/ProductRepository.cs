@@ -14,9 +14,33 @@ namespace ProiectV1.Repositories.ProductRepository
 
         public List<Product> GetByCategory(ProductCategory category)
         {
-            var products = table.Where(x => x.Category == category).Select(x => x).OrderBy(x => x.Price).ToList();
+            var products = table.Where(x => x.Category == category).OrderBy(x => x.Price).ToList();
             return products;
             
+        }
+        public Product GetProductByCategoryByName(ProductCategory category, string name)
+        {
+            var product = table.FirstOrDefault(x => x.Category == category && x.Name == name);
+            if (product != null)
+                return product;
+            else return null;
+        }
+
+        public List<List<Product>> GroupByCategory()
+        {
+            var groupedByCategory = from P in table
+                                     group P by P.Category;
+
+            var productsList = new List<List<Product>>();
+
+            foreach (var category in groupedByCategory)
+            {
+                var tempList = new List<Product>();
+                tempList.AddRange(category);
+                productsList.Add(tempList);
+            }
+            return productsList;
+
         }
 
     }

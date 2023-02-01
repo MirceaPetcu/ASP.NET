@@ -33,7 +33,43 @@ namespace ProiectV1.Services.ProductServices
         {
             return productRepository.GetByCategory(category);
         }
+        public void DeleteProductByCategoryByName(ProductCategory category, string name)
+            {
+            var product = productRepository.GetProductByCategoryByName(category, name);
+            if (product != null)
+            {
+                productRepository.Delete(product);
+                productRepository.Save();
+            }
+            else throw new("The product that you are looking for doesn't exist!");
 
-       
+        }
+        public Product GetProductByCategoryByName(ProductCategory category, string name)
+        {
+            var product = productRepository.GetProductByCategoryByName(category, name);
+            if (product != null)
+                return product;
+            else return null;
+
+        }
+
+        public List<Product> GetAllProducts()
+        {
+            return productRepository.GetAll();
+        }
+
+        public void UpdateProduct(Product product)
+        {
+            productRepository.Update(product);
+            productRepository.Save();
+        }
+
+        public List<List<Product>> GroupByCategory()
+        {
+            var list = productRepository.GroupByCategory();
+            return list;
+        }
+
+
     }
 }
