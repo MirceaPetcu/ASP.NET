@@ -16,7 +16,7 @@ namespace ProiectBackendPetcuMircea.DAL.Services.OrderServices
         {
             return orderRepository.FindByUserId(userId);
         }
-        void AddOrder(Order order)
+        public void AddOrder(Order order)
         {
             orderRepository.Create(order);
             orderRepository.Save();
@@ -26,9 +26,31 @@ namespace ProiectBackendPetcuMircea.DAL.Services.OrderServices
             return orderRepository.GetAll();
         }
 
-        void IOrderService.AddOrder(Order order)
+       
+
+        public List<Order> GetOrdersWithProducts()
         {
-            throw new NotImplementedException();
+            return orderRepository.GetOrdersWithProducts();
+        }
+
+        public void UpdateOrder(Order order)
+        {
+            orderRepository.Update(order);
+            orderRepository.Save();
+        }
+
+        public Order GetOrderById(Guid id)
+        {
+            var order = orderRepository.GetById(id);
+            if (order == null)
+                return null;
+            else return order;
+        }
+
+        public void DeleteOrder(Order order)
+        {
+            orderRepository.Delete(order);
+            orderRepository.Save();
         }
     }
 }

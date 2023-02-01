@@ -8,6 +8,10 @@ namespace ProiectV1.Services.OrderServices
         List<Order> GetDataMappedByUserId(Guid userId);
         void AddOrder(Order order);
         IEnumerable<Order> GetAllOrders();
+        List<Order> GetOrdersWithProducts();
+        void UpdateOrder(Order order);
+        Order GetOrderById(Guid id);
+        void DeleteOrder(Order order);
 
     }
 }

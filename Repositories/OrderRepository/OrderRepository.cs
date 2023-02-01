@@ -1,4 +1,5 @@
-﻿using ProiectV1.Data;
+﻿using Microsoft.EntityFrameworkCore;
+using ProiectV1.Data;
 using ProiectV1.Models;
 using ProiectV1.Repositories.Generic;
 
@@ -15,13 +16,25 @@ namespace ProiectV1.Repositories.OrderRepository
             return table.Where(o => o.UserId == userId).ToList();
         }
 
-    
+        public Order GetOrderByIdWithProducts(Guid id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<Order> GetOrdersWithProducts()
+        {
+            return table.Include(o => o.Products).ToList();
+            
+        }
+
         public IQueryable<Order> GetWithDeliveryAdressByOrderId(Guid id)
         {
             
             var orders = table.Join(context.Orders, deliveryAdress => deliveryAdress.Id, order => order.DeliveryAdressId, (order, deliveryAdress) => new { order, deliveryAdress }).Select(o => o.deliveryAdress).Where(o => o.Id == id);
             return orders;
         }
+
+      
 
 
 
