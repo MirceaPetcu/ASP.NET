@@ -8,9 +8,8 @@ namespace ProiectV1.Repositories.OrderRepository
     {
         //functii cu join,include,where,order pentru fiecare tabela separat
         List<Order> FindByUserId(Guid userId);
-        IQueryable<Order> GetWithDeliveryAdressByOrderId(Guid id);
+        Order? GetWithDeliveryAdressByOrderId(Guid id);
         List<Order> GetOrdersWithProducts();
-        Order GetOrderByIdWithProducts(Guid id);
 
 
 

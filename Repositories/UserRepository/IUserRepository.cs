@@ -6,11 +6,13 @@ namespace ProiectV1.Repositories.UserRepository
 {
     public interface IUserRepository : IGenericRepository<User>
     {
-        int NoOrdersByUserId(Guid id);
+        int NoOrdersByUserId(string username);
         User FindByUserName(string username);
-        User FindByEmail(string email);
+        User? FindByEmail(string email);
         Role GetRoleByUsername(string username);
+        User? GetUserWithOrders(string username);
     }
+    
     
 
 }

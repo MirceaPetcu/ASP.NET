@@ -72,6 +72,11 @@ namespace ProiectV1.Services.UserServices
             return userRepository.GetRoleByUsername(username);
         }
 
+        public User? GetUserByUsernameWithOrders(string username)
+        {
+            return userRepository.GetUserWithOrders(username);
+        }
+
 
 
     }

@@ -52,5 +52,9 @@ namespace ProiectBackendPetcuMircea.DAL.Services.OrderServices
             orderRepository.Delete(order);
             orderRepository.Save();
         }
+        public Order? GetWithDeliveryAdressByOrderId(Guid id)
+        {
+            return orderRepository.GetWithDeliveryAdressByOrderId(id);
+        }
     }
 }

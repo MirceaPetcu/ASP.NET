@@ -52,7 +52,7 @@ namespace ProiectV1.Controllers
             return Ok();
         }
 
-        //[Authorization(Role.Admin)]
+        [Authorization(Role.Admin)]
         [HttpGet("get-all-admin")]
         public IActionResult GetAllAdmin()
         {
@@ -60,7 +60,7 @@ namespace ProiectV1.Controllers
             return Ok(users);
         }
 
-        //[Authorization(Role.Admin)]
+        [Authorization(Role.Admin)]
         [HttpDelete("delete-user-by-admin")]
         public IActionResult DeleteUser(string username)
         {
@@ -103,6 +103,17 @@ namespace ProiectV1.Controllers
             }
         }
 
+        [HttpGet("get-user-by-username-with-all-his-orders")]
+        public IActionResult GetUserByUsernameWithOrders(string username)
+        {
+            var user = userService.GetUserByUsernameWithOrders(username);
+            if (user == null)
+                return NotFound("there is no user with this username");
+            else
+            {
+                return Ok(user);
+            }
+        }
 
     }
 }

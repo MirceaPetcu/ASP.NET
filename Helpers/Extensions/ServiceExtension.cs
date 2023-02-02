@@ -2,10 +2,12 @@
 using ProiectBackendPetcuMircea.DAL.Services.OrderServices;
 using ProiectV1.Helpers.JwtUtils;
 using ProiectV1.Helpers.Seeders;
+using ProiectV1.Repositories.DeliveryAdressRepository;
 using ProiectV1.Repositories.OrderRepository;
 using ProiectV1.Repositories.ProductRepository;
 using ProiectV1.Repositories.PromotionRepository;
 using ProiectV1.Repositories.UserRepository;
+using ProiectV1.Services.DeliveryAdressServices;
 using ProiectV1.Services.OrderServices;
 using ProiectV1.Services.ProductServices;
 using ProiectV1.Services.UserServices;
@@ -20,6 +22,8 @@ namespace ProiectV1.Helpers.Extensions
             services.AddTransient<IPromotionRepository,PromotionRepository>();
             services.AddTransient<IOrderRepository, OrderRepository>();
             services.AddTransient<IUserRepository, UserRepository>();
+            services.AddTransient<IDeliveryAdressRepository,DeliveryAdressRepository>();
+
 
             return services;
         }
@@ -32,6 +36,8 @@ namespace ProiectV1.Helpers.Extensions
             //services.AddTransient<I>
             services.AddTransient<IUserService, UserService>();
             services.AddTransient<IOrderService, OrderService>();
+            services.AddTransient<IDeliveryAdressService,DeliveryAdressService>();
+
 
             return services;
         }

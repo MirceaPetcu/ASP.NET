@@ -11,9 +11,9 @@ namespace ProiectV1.Repositories.UserRepository
         {
         }
 
-        public int NoOrdersByUserId(Guid id)
+        public int NoOrdersByUserId(string username)
         {
-            var noOrders = table.Where(u => u.Id == id).Select(u => u.Orders);
+            var noOrders = table.Where(u => u.UserName == username).Select(u => u.Orders);
             return noOrders.Count();
         }
 
@@ -30,8 +30,19 @@ namespace ProiectV1.Repositories.UserRepository
         public Role GetRoleByUsername(string username)
         {
             var role =  table.Where(u => u.UserName == username).Select(u => u.Role).First();
+            
             return role;
         }
+
+        public User? GetUserWithOrders(string username)
+        {
+            var user =   table.Where(u => u.UserName == username).Join(context.Orders, user => user.Id, orders => orders.UserId, (user, orders) => new { user, orders }).Select(obj => obj.user).First();
+            if (user == null)
+                return null;
+            else return user;
+        }
+
+
 
 
     }

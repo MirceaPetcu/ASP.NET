@@ -17,5 +17,7 @@ namespace ProiectV1.Services.UserServices
         void Update(User newUser);
         Role GetRoleByUsername(string username);
 
+        User GetUserByUsernameWithOrders(string username);
+
     }
 }

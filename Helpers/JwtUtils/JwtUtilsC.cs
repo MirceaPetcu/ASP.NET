@@ -55,7 +55,7 @@ namespace ProiectV1.Helpers.JwtUtils
                 ValidateIssuerSigningKey = true,
                 IssuerSigningKey = new SymmetricSecurityKey(appPrivateKey),
                 //validam provider-ul token-ului
-                ValidateIssuer = true,
+                ValidateIssuer = false,
                 //clientul inca nu este validat
                 ValidateAudience = false,
                 //timp de validare

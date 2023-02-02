@@ -1,7 +1,9 @@
-﻿namespace ProiectV1.Models.DTOs
+﻿using ProiectV1.Models.Enums;
+
+namespace ProiectV1.Models.DTOs
 {
     public class OrderDTO
     {
-        public ICollection<Product>? Products { get; set; }
+        public ICollection<Tuple<string,ProductCategory>> Products { get; set; }
     }
 }

@@ -8,6 +8,7 @@ using ProiectV1.Helpers.Middleware;
 using ProiectV1.Helpers.Seeders;
 using ProiectV1.Repositories.ProductRepository;
 using ProiectV1.Services.ProductServices;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -25,6 +26,13 @@ builder.Services.AddServices();
 builder.Services.AddSeeders();
 builder.Services.Configure<AppSettings>(builder.Configuration.GetSection("AppSettings"));
 builder.Services.AddUtils();
+//pentru a imi putea afisa comanda cu toate produsele si user-ul ce a plasat-o fara a se cicla la infinit
+builder.Services.AddControllersWithViews()
+    .AddJsonOptions(options =>
+    {
+        options.JsonSerializerOptions.ReferenceHandler = ReferenceHandler.Preserve;
+        options.JsonSerializerOptions.PropertyNamingPolicy = null; // prevent camel case
+    });
 
 //AutoMapper
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
