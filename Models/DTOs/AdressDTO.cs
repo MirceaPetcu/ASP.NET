@@ -6,5 +6,7 @@ namespace ProiectV1.Models.DTOs
     {
         public string city { get; set; }
         public string country { get; set; }
+        public string street { get; set; }
+        public int number { get; set; }
     }
 }

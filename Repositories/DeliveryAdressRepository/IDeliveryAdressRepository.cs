@@ -5,5 +5,7 @@ namespace ProiectV1.Repositories.DeliveryAdressRepository
 {
     public interface IDeliveryAdressRepository : IGenericRepository<DeliveryAdress>
     {
+        DeliveryAdress FindDeleteAdressByStreetByNumber(string street, int number);
+
     }
 }

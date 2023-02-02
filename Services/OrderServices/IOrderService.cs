@@ -12,7 +12,7 @@ namespace ProiectV1.Services.OrderServices
         void UpdateOrder(Order order);
         Order GetOrderById(Guid id);
         void DeleteOrder(Order order);
-        Order? GetWithDeliveryAdressByOrderId(Guid id);
+        List<Order> GetWithDeliveryAdress();
 
 
     }

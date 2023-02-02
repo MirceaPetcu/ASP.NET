@@ -5,6 +5,8 @@ using ProiectV1.Helpers.JwtUtils;
 using ProiectV1.Models;
 using ProiectV1.Models.DTOs;
 using ProiectV1.Models.Enums;
+using ProiectV1.Repositories.DeliveryAdressRepository;
+using ProiectV1.Services.DeliveryAdressServices;
 using ProiectV1.Services.OrderServices;
 using ProiectV1.Services.ProductServices;
 using ProiectV1.Services.UserServices;
@@ -20,13 +22,15 @@ namespace ProiectV1.Controllers
         private readonly IUserService userService;
         private readonly IJwtUtils jwtUtils;
         private readonly IProductService productService;
+        private readonly IDeliveryAdressService deliveryAdressService;
 
-        public OrderController(IOrderService orderService, IUserService userService,IJwtUtils jwtUtils,IProductService productService)
+        public OrderController(IOrderService orderService, IUserService userService,IJwtUtils jwtUtils,IProductService productService,IDeliveryAdressService deliveryAdressService)
         {
             this.orderService = orderService;
             this.userService = userService;
             this.jwtUtils = jwtUtils;
             this.productService = productService;
+            this.deliveryAdressService = deliveryAdressService;
         }
         
         [HttpGet("get-all-orders")]
@@ -100,7 +104,7 @@ namespace ProiectV1.Controllers
         }
 
         [HttpPost("user-place-an-order")]
-        public IActionResult UserPlacesAnOrder(List<Tuple<string,ProductCategory>> products,[FromQuery]UserRequestDTO userRequestDTO)
+        public IActionResult UserPlacesAnOrder(List<Tuple<string,ProductCategory>> products,[FromQuery]UserRequestDTO userRequestDTO, [FromQuery] string street, [FromQuery] int nr)
         {
             var response = userService.Authenticate(userRequestDTO);
             if (response == null)
@@ -123,6 +127,12 @@ namespace ProiectV1.Controllers
                 order.Products = colectie;
                 order.User = user;
                 order.UserId = user.Id;
+                var adrees1 = deliveryAdressService.FindDeleteAdressByStreetByNumber(street, nr);
+                if (adrees1 != null)
+                {
+                    order.DeliveryAdress = adrees1;
+                    order.DeliveryAdressId = adrees1.Id;
+                }
                 orderService.AddOrder(order);
                 var list = new List<Order>();
                 list.Add(order);
@@ -135,18 +145,15 @@ namespace ProiectV1.Controllers
                 }
                 user.Orders = list;
                 userService.Update(user);
+
                 return Ok();
             }
         }
 
-        [HttpGet("get-order-by-id-with-delvery-adress")]
-        public IActionResult GetOrderWithDeliveryAdress(Guid id)
+        [HttpGet("get-orders-with-delvery-adress")]
+        public IActionResult GetOrdersWithDeliveryAdress()
         {
-            var order = orderService.GetWithDeliveryAdressByOrderId(id);
-            if (order == null)
-                return BadRequest("there is no order with this id");
-            else
-                return Ok(order);
+           return Ok(orderService.GetWithDeliveryAdress());
         }
     }
 }

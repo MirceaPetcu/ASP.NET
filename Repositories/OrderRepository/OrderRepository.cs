@@ -23,14 +23,13 @@ namespace ProiectV1.Repositories.OrderRepository
             return table.Include(o => o.Products).ToList();
         }
 
-        public Order? GetWithDeliveryAdressByOrderId(Guid id)
+        public List<Order> GetWithDeliveryAdress()
         {
             
-            var orders = table.Where(o => o.Id == id).Join(context.Orders, deliveryAdress => deliveryAdress.Id, order => order.DeliveryAdressId, (order, deliveryAdress) => new { order, deliveryAdress }).Select(o => o.deliveryAdress);
             
-            if (orders.Count() == 0)
-                return null;
-            else return orders.First();
+             return table.Join(context.DeliveryAdresses, order => order.Id, da => da.OrderId, (order, da) => new { order, da }).Select(obj => obj.order).ToList();
+            
+            
         }
 
        
